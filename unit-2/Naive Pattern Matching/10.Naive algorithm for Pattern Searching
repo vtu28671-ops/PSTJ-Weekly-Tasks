@@ -1,0 +1,20 @@
+import java.util.*;
+class GFG {
+    public static ArrayList<Integer> search(String pat, String txt) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        for (int i = 0; i <= txt.length() - pat.length(); i++) {
+            int j = 0;
+            while (j < pat.length() && txt.charAt(i + j) == pat.charAt(j))
+                j++;
+            if (j == pat.length())
+                ans.add(i);
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        String txt = "aabaacaadaabaaba";
+        String pat = "aaba";
+        for (int x : search(pat, txt))
+            System.out.print(x + " ");
+    }
+}
